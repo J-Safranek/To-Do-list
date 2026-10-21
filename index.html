@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Úkoly</title>
+<meta name="description" content="Seznam úkolů s termíny a odpočtem. Ukládá se přímo ve vašem prohlížeči.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Úkoly</h1>
+    <p id="stav" aria-live="polite"></p>
+    <div class="progress" aria-hidden="true"><div id="pruh"></div></div>
+  </header>
+
+  <form id="formular" class="panel">
+    <label class="pole">
+      <span>Název</span>
+      <input type="text" id="nazev" placeholder="Např. Odevzdat seminárku" maxlength="120" autocomplete="off" required>
+    </label>
+
+    <label class="pole">
+      <span>Co přesně udělat</span>
+      <textarea id="popis" rows="3" maxlength="500" placeholder="Podrobnosti, kroky, poznámky…"></textarea>
+    </label>
+
+    <div class="radek">
+      <label class="pole">
+        <span>Termín</span>
+        <input type="datetime-local" id="termin">
+      </label>
+      <button class="add" type="submit">Přidat úkol</button>
+    </div>
+  </form>
+
+  <div class="filters" role="group" aria-label="Filtr úkolů">
+    <button data-filtr="vse" aria-pressed="true">Vše</button>
+    <button data-filtr="aktivni" aria-pressed="false">Aktivní</button>
+    <button data-filtr="hotove" aria-pressed="false">Hotové</button>
+  </div>
+
+  <ul id="seznam"></ul>
+  <p class="prazdne" id="prazdne" hidden></p>
+
+  <footer>
+    <button class="vycistit" id="vycistit" hidden>Smazat hotové</button>
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
